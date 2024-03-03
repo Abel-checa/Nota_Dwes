@@ -1,0 +1,49 @@
+- var rol = cargo 
+- var name = nombre
+- var products = productos
+- var users = usuarios
+- var favs = favoritos
+
+doctype html
+html(lang="en")
+    head
+        <script src="https://cdn.tailwindcss.com"></script>
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        include partials/user_header
+        
+        if rol == "admin"
+            section#admin
+                h1 Productos
+                for p in products
+                    div.box
+                        img(src=p.imagen, alt="")
+                        h1=p.nombre
+                        p=p.precio 
+                h1 Usuarios 
+                for user in users
+                    div.user
+                        h2=user.nombre
+                        h3=user.email
+                        
+
+        else if rol == "cliente"
+            
+            h1 Bienvenido 
+            h1=name
+
+            if large == 0
+                p No hay Productos Favoritos ahora mismo
+                a(href="/add") Añadir
+            else 
+                for f in favs
+                    div 
+                        img(src=f.imagen, alt="")
+                        h1=f.nombre 
+                        p=f.precio 
+
+
+
+                

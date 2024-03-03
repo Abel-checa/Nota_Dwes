@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+    head
+        <script src="https://cdn.tailwindcss.com"></script>
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Landing
+    body
+        include partials/header.pug
+        section(class="h-[80vh] bg-[url('/images/johannes-plenio-J9oL7OBGSns-unsplash.jpg')] bg-cover flex justify-center items-center flex-col text-center")
+            h1(class="text-[70px] text-white") Welcome <br> To Our landing page
+            a(href="/login")
+                button(type="submit",class="p-[.4rem] w-[150px] bg-black text-white") Acceder 
+        include partials/footer.pug

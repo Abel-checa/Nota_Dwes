@@ -1,0 +1,23 @@
+- var errors = errores
+- var values = valores
+
+doctype html
+html(lang="en")
+    head
+        <script src="https://cdn.tailwindcss.com"></script>
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Login
+    body
+        include partials/header.pug
+        section(class="h-[80vh] bg-[url('/images/pang-yuhao-wCi28eq8TF4-unsplash.jpg')] bg-cover flex justify-center items-center flex-col text-center")
+            h1(class="text-[30px] text-white") Login
+            form(action="/login",method="post",class="h-[400px] w-[350px] flex flex-col justify-evenly items-center bg-white")
+                input(type="text", name="nombre",placeholder="Usuario",class="p-[.4rem] w-[80%] border") 
+                input(type="password", name="password",placeholder="Password",class="p-[.4rem] w-[80%] border")
+                button(type="submit",class="p-[.4rem] w-[150px] bg-black text-white") Acceder
+            if errors 
+                for i in errors 
+                    p=i.msg
+
+        include partials/footer.pug
