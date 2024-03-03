@@ -15,34 +15,43 @@ html(lang="en")
         include partials/user_header
         
         if rol == "admin"
-            section#admin
-                h1 Productos
-                for p in products
-                    div.box
-                        img(src=p.imagen, alt="")
-                        h1=p.nombre
-                        p=p.precio 
-                h1 Usuarios 
-                for user in users
-                    div.user
-                        h2=user.nombre
-                        h3=user.email
+            section(class="flex")
+                div(class="border w-[50%] flex  flex-col justify-evenly items-center")
+                    h1(class="text-[40px]") Productos
+                    for p in products
+                        div(class="h-[300px] w-[450px] flex border mb-[30px]")
+                            div(class="h-full w-[50%]")
+                                img(src=p.imagen, alt="",class="h-full w-full")
+                            div(class="h-full w-[50%] flex flex-col justify-evenly items-center")
+                                h1(class="text-[23px] text-orange-400")=p.nombre
+                                p(class="text-[23px] text-orange-400")=p.precio 
+                div(class="border w-[50%] flex flex-col justify-evenly items-center") 
+                    h1(class="text-[40px]") Usuarios 
+                    for user in users
+                        div(class="border h-[100px] w-[80%] flex justify-around items-center p-[.4rem]")
+                            h2(class="text-[40px]")=user.nombre
+                            h3(class="text-[40px]")=user.email
                         
 
         else if rol == "cliente"
             
-            h1 Bienvenido 
-            h1=name
+            div(class="h-[200px]  flex flex-col justify-center items-center text-center")
+                h1(class="text-[70px] text-orange-400") Bienvenido 
+                h1(class="text-[70px] text-orange-400")=name
 
             if large == 0
-                p No hay Productos Favoritos ahora mismo
-                a(href="/add") Añadir
+                div(class="h-[200px] flex justify-center items-center flex-col")
+                    p(class="text-[55px] text-red-400") No hay Productos Favoritos ahora mismo
+                    a(href="/add")
+                        button(class="p-[.4rem] w-[150px] bg-black text-white") Añadir
             else 
                 for f in favs
-                    div 
-                        img(src=f.imagen, alt="")
-                        h1=f.nombre 
-                        p=f.precio 
+                    div(class="h-[300px] w-[450px] flex border mb-[30px]")
+                        div(class="h-full w-[50%]")
+                            img(src=f.imagen, alt="",class="h-full w-full")
+                        div(class="h-full w-[50%] flex flex-col justify-evenly items-center")
+                            h1(class="text-[23px] text-orange-400")=f.nombre 
+                            p(class="text-[23px] text-orange-400")=f.precio 
 
 
 
